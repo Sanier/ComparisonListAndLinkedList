@@ -7,17 +7,23 @@ namespace ComparisonListAndLinkedList
 {
     class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            string text = File.ReadAllText("C:\\Users\\sanie\\Desktop\\Text1.txt");  //изменять туть
-
-            var list = new List<string>();
-            var linkedList = new LinkedList<string>();
-
             var timer = new Stopwatch();
+
             timer.Start();
+            var list = new List<string>();     
+            list.Add(File.ReadAllText("C:\\Users\\sanie\\Desktop\\Text1.txt"));
             timer.Stop();
-            Console.WriteLine(timer.ElapsedMilliseconds);
+            Console.WriteLine("List: " + timer.ElapsedMilliseconds);
+            timer.Reset();
+
+            timer.Start();
+            var linkedList = new LinkedList<string>();
+            linkedList.AddFirst(File.ReadAllText("C:\\Users\\sanie\\Desktop\\Text1.txt"));
+            timer.Stop();
+            Console.WriteLine("LinkedList: " + timer.ElapsedMilliseconds);
+            timer.Reset();
         }
     }
 }
